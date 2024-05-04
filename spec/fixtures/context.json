@@ -1,0 +1,133 @@
+{
+  "v": 1.0,
+  "call": {
+    "args": {
+      "amount": "A1.A0",
+      "key": "3ZA1UmmLvaRjyB2Yj54gbKL7Zz94uiYkySvihdYmrQNY"
+    },
+    "function": "create_user",
+    "id": "018f3f2a-0b8f-7b8c-93a7-4aabec17339d",
+    "ttl": 5000,
+    "target": "ec.veratix.io"
+  },
+  "caller": {
+    "user": {
+      "id": "root",
+      "keys": {
+        "primary": "DnzfxFfBgDSQcXvuo3xAqHJPyvctS6q37nxpUmK6MGeQ"
+      },
+      "balance": "I536870859.A3",
+      "rules": {},
+      "groups": {
+        "default": "owner"
+      }
+    },
+    "key": "DnzfxFfBgDSQcXvuo3xAqHJPyvctS6q37nxpUmK6MGeQ"
+  },
+  "system": {
+    "system": {
+      "key": "HHaUw9hqSUqNhUFZavPSfyA3166fkMGn2HhvUs2C6z8"
+    },
+    "root": {
+      "key": "DnzfxFfBgDSQcXvuo3xAqHJPyvctS6q37nxpUmK6MGeQ"
+    }
+  },
+  "targets": [
+    {
+      "user": null,
+      "key": "3ZA1UmmLvaRjyB2Yj54gbKL7Zz94uiYkySvihdYmrQNY"
+    }
+  ],
+  "calldata": {
+    "call": {
+      "args": {
+        "amount": "A1.A0",
+        "key": "3ZA1UmmLvaRjyB2Yj54gbKL7Zz94uiYkySvihdYmrQNY"
+      },
+      "function": "create_user",
+      "id": "018f3f2a-0b8f-7b8c-93a7-4aabec17339d",
+      "ttl": 5000,
+      "target": "ec.veratix.io"
+    },
+    "meta": {
+      "hash": "f771a4b10caa550cf9109e603c18f0aa815022444445c06892b839a6c242ca7f",
+      "hash12": "f771a4b10caa",
+      "state_key": "VZ81stAHnjEXhTu75Yy9WBQHVKmH@f771a4b10caa"
+    },
+    "requirements": [],
+    "base58": "VZ81stAHnjEXhTu75Yy9WBQHVKmH",
+    "operations": [
+      {
+        "parent": "d61bf285802ce07f5710b7f1204d278127b49853193b77c13cd9a24eb4b5a3d0",
+        "continue": "normal",
+        "success": true,
+        "action": "init",
+        "actor": "system@gateway.dev.veratix.com",
+        "mutating": true,
+        "fee": 0.001
+      },
+      {
+        "parent": "a386e495e99c250d112132dd1ad51d28d0b4cb6f38a058cb5e94c4d810443b10",
+        "continue": "normal",
+        "success": true,
+        "action": "sig_check",
+        "actor": "system@gateway.dev.veratix.com",
+        "mutating": true,
+        "fee": 0.001
+      }
+    ],
+    "law": "normal",
+    "confirmations": [
+      {
+        "type": "implicit",
+        "signature": "45e31z27tdFSHCF4hVGPdcPWvLB3fQeuKdeYyYe4nMfDXrcfFAnngmCDrdfQUibokhy3sx2FHf2z9SmSMd3ZBaxe",
+        "key": "DnzfxFfBgDSQcXvuo3xAqHJPyvctS6q37nxpUmK6MGeQ",
+        "signer": "DnzfxFfBgDSQcXvuo3xAqHJPyvctS6q37nxpUmK6MGeQ"
+      }
+    ],
+    "segwit": [
+      {
+        "parent": "d61bf285802ce07f5710b7f1204d278127b49853193b77c13cd9a24eb4b5a3d0",
+        "host": "gateway.dev.veratix.com",
+        "current": "49fe040394f00deb47bf4da59fed38be56c154d9d0964f7ac55c7e32fb8ec9c2",
+        "witnesses": [
+          {
+            "type": null,
+            "signature": "5Dm819LmvjBhpXwuHesR9H3fP4QexGuGMuXt1cr15zBpNfpud6ZEWyFqrcQS3DwkaVRa7b4E1wWFaiZMzBwvzd9v",
+            "key": null,
+            "signer": "system@gateway.dev.veratix.com"
+          }
+        ]
+      },
+      {
+        "parent": "a386e495e99c250d112132dd1ad51d28d0b4cb6f38a058cb5e94c4d810443b10",
+        "host": "gateway.dev.veratix.com",
+        "current": "a160283236c99990d8ec925f15437961e61a553819de1346b0589c97c7b5644c",
+        "witnesses": [
+          {
+            "type": null,
+            "signature": "3Qk58qvVz9nHNgezb3TzHKLjrhmgtrstZxxtZabNHxhNiQVcNoaLwQPdyJnA1rzQHrRbJ8LsR4jxZM8ZydoMvBZY",
+            "key": null,
+            "signer": "system@gateway.dev.veratix.com"
+          }
+        ]
+      }
+    ]
+  },
+  "signers": [
+    {
+      "user": {
+        "id": "root",
+        "keys": {
+          "primary": "DnzfxFfBgDSQcXvuo3xAqHJPyvctS6q37nxpUmK6MGeQ"
+        },
+        "balance": "I536870859.A3",
+        "rules": {},
+        "groups": {
+          "default": "owner"
+        }
+      },
+      "key": "DnzfxFfBgDSQcXvuo3xAqHJPyvctS6q37nxpUmK6MGeQ"
+    }
+  ]
+}
