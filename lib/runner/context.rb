@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-require 'json'
+require "json"
+require_relative "schema"
+require "dry-monads"
 
 Context = Data.define(:call, :caller, :signers, :targets)
 
@@ -15,7 +17,6 @@ class User
   end
 end
 
-# Define the Caller class with optional User and a key.
 class Caller
   attr_reader :user, :key
 
@@ -25,7 +26,6 @@ class Caller
   end
 end
 
-# Define the Signer class similarly to Caller.
 class Signer
   attr_reader :user, :key
 
@@ -35,7 +35,6 @@ class Signer
   end
 end
 
-# Define the Target class similarly to Caller.
 class Target
   attr_reader :user, :key
 
@@ -45,7 +44,6 @@ class Target
   end
 end
 
-# Define the Call class with relevant call details.
 class Call
   attr_reader :id, :target, :function, :args, :ttl
 
@@ -59,9 +57,12 @@ class Call
 end
 
 module Parser
-  # Method to parse context and create instances of classes.
-  def self.json(json_data)
-    context = JSON.parse(json_data)
+  extend Dry::Monads[:result]
+
+  def self.parse(context)
+    result = ContextSchemaBasic.call(context)
+
+    return Failure(result.errors) unless result.success?
 
     call = Call.new(
       id: context["call"]["id"],

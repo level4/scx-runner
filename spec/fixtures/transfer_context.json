@@ -1,0 +1,159 @@
+{
+  "call": {
+    "args": {
+      "amount": "C100.A0",
+      "from": "AvrsEWLMEQgpkem9wfcNgph6G4aRkCVJeiyYo5fu87cb",
+      "to": "HtFMpu8LQka2z9BP2BW7KZWn84pqFh2ZxB3ZU56Uo6yk"
+    },
+    "function": "transfer",
+    "id": "018f4c8e-6e90-7c5e-83e7-b6685e829470",
+    "ttl": 5000,
+    "target": "demo20.veratix.io"
+  },
+  "caller": {
+    "user": {
+      "id": "Z7ykjnH7YRotQraktiJr4o246v9Z",
+      "keys": {
+        "primary": "AvrsEWLMEQgpkem9wfcNgph6G4aRkCVJeiyYo5fu87cb"
+      },
+      "balance": "A0.A7",
+      "groups": {
+        "default": "member"
+      },
+      "rules": {}
+    },
+    "key": "AvrsEWLMEQgpkem9wfcNgph6G4aRkCVJeiyYo5fu87cb"
+  },
+  "system": {
+    "system": {
+      "key": "HHaUw9hqSUqNhUFZavPSfyA3166fkMGn2HhvUs2C6z8"
+    },
+    "root": {
+      "key": "DnzfxFfBgDSQcXvuo3xAqHJPyvctS6q37nxpUmK6MGeQ"
+    }
+  },
+  "v": 1.0,
+  "targets": [
+    {
+      "user": {
+        "id": "Z7ykjnH7YRotQraktiJr4o246v9Z",
+        "keys": {
+          "primary": "AvrsEWLMEQgpkem9wfcNgph6G4aRkCVJeiyYo5fu87cb"
+        },
+        "balance": "A0.A7",
+        "groups": {
+          "default": "member"
+        },
+        "rules": {}
+      },
+      "key": "AvrsEWLMEQgpkem9wfcNgph6G4aRkCVJeiyYo5fu87cb"
+    },
+    {
+      "user": {
+        "id": "Z7ykjnECsQgXRoFsiPhZZxNn3Exm",
+        "keys": {
+          "primary": "HtFMpu8LQka2z9BP2BW7KZWn84pqFh2ZxB3ZU56Uo6yk"
+        },
+        "balance": "A1.A0",
+        "groups": {
+          "default": "member"
+        },
+        "rules": {}
+      },
+      "key": "HtFMpu8LQka2z9BP2BW7KZWn84pqFh2ZxB3ZU56Uo6yk"
+    }
+  ],
+  "calldata": {
+    "call": {
+      "args": {
+        "amount": "C100.A0",
+        "from": "AvrsEWLMEQgpkem9wfcNgph6G4aRkCVJeiyYo5fu87cb",
+        "to": "HtFMpu8LQka2z9BP2BW7KZWn84pqFh2ZxB3ZU56Uo6yk"
+      },
+      "function": "transfer",
+      "id": "018f4c8e-6e90-7c5e-83e7-b6685e829470",
+      "ttl": 5000,
+      "target": "demo20.veratix.io"
+    },
+    "meta": {
+      "hash": "a1f46b9aa23a8882f3dd6936232df968c91b5c5491224c3af0d4041b11e501a7",
+      "state_key": "VZ82S6kMToU3o8JmyxT2cyyWLrDm@a1f46b9aa23a",
+      "hash12": "a1f46b9aa23a"
+    },
+    "requirements": [],
+    "base58": "VZ82S6kMToU3o8JmyxT2cyyWLrDm",
+    "law": "normal",
+    "operations": [
+      {
+        "parent": "d16cb114daeab78ceac1de8f80063d6828ca0e7a2785a727a1e155f6920dbb3d",
+        "continue": "normal",
+        "success": true,
+        "action": "init",
+        "actor": "system@gateway.dev.veratix.com",
+        "mutating": true,
+        "fee": 0.001
+      },
+      {
+        "parent": "8090601fc6652061ab7a1d6f7f8a78dd468e4b7d658d37b9f6558a20b85962e0",
+        "continue": "normal",
+        "success": true,
+        "action": "sig_check",
+        "actor": "system@gateway.dev.veratix.com",
+        "mutating": true,
+        "fee": 0.001
+      }
+    ],
+    "confirmations": [
+      {
+        "type": "implicit",
+        "signature": "2eKbP254Ahxp9YuRn51NaNRRZ21JjyT7mCPHKwRHd23i3RV1Bk8L48ZnRKyFqeA4fuEQwsa3oFhUDxvYhLU1zSzS",
+        "key": "AvrsEWLMEQgpkem9wfcNgph6G4aRkCVJeiyYo5fu87cb",
+        "signer": "AvrsEWLMEQgpkem9wfcNgph6G4aRkCVJeiyYo5fu87cb"
+      }
+    ],
+    "segwit": [
+      {
+        "parent": "d16cb114daeab78ceac1de8f80063d6828ca0e7a2785a727a1e155f6920dbb3d",
+        "host": "gateway.dev.veratix.com",
+        "witnesses": [
+          {
+            "type": null,
+            "signature": "437JvxL8W7d8NBJZYBEg1hwhe7F1yo5HeDyEEPhZ87RPbmRs45oQfCzuisZqbB7Ky4MSyShtQ3hvdGtrKJtqiz3",
+            "key": null,
+            "signer": "system@gateway.dev.veratix.com"
+          }
+        ],
+        "current": "7370ee68364e27681b0553719507a93c1599b7d097446a26713416cdf6082d70"
+      },
+      {
+        "parent": "8090601fc6652061ab7a1d6f7f8a78dd468e4b7d658d37b9f6558a20b85962e0",
+        "host": "gateway.dev.veratix.com",
+        "witnesses": [
+          {
+            "type": null,
+            "signature": "5DNCBpz6Gf3PgX1GT5BsbP1bGZEtbTLc5Xkq4QRDTh4LYbk9ZtrfiWsJQN1DcgWVJoRDu22fZYM63Pq3892vbxGd",
+            "key": null,
+            "signer": "system@gateway.dev.veratix.com"
+          }
+        ],
+        "current": "09b20d25bf226a36877c7ae6cdb7db75bdeef0127d4026231926e877ca56caee"
+      }
+    ]
+  },
+  "signers": [
+    {
+      "user": {
+        "id": "Z7ykjnH7YRotQraktiJr4o246v9Z",
+        "keys": {
+          "primary": "AvrsEWLMEQgpkem9wfcNgph6G4aRkCVJeiyYo5fu87cb"
+        },
+        "balance": "A0.A7",
+        "groups": {
+          "default": "member"
+        },
+        "rules": {}
+      },
+      "key": "AvrsEWLMEQgpkem9wfcNgph6G4aRkCVJeiyYo5fu87cb"
+    }
+  ]
+}

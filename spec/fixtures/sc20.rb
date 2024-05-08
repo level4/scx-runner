@@ -1,7 +1,7 @@
-require_relative "../../lib/scx/runner"
+require_relative "../../lib/runner"
 
 class SC20
-  include Scx::Runner
+  include Runner
 
   attr_accessor :balances, :decimals, :state
 
@@ -15,17 +15,20 @@ class SC20
 
   def balance(entity:)
     raise "no balance for #{entity}" unless balances[entity]
+
     balances[entity]
   end
 
   def mint_to(entity:, amount:)
     raise :unauthorized unless groups[:admins].include?(caller)
+
     balances[entity] = (balances[entity] || 0) + amount
     state
   end
 
   def burn_from(entity:, amount:)
     raise :unauthorized unless groups[:admins].include?(caller)
+
     start_balance = balances[entity] || 0
 
     raise :insufficient_funds unless start_balance >= amount
@@ -36,6 +39,7 @@ class SC20
 
   def mint(to:, amount:)
     raise :unauthorized unless groups[:admins].include?(caller)
+
     amount = BigDecimal(amount, Float::DIG)
     balances[to] = (balances[to] || 0) + amount
     state

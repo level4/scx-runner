@@ -1,24 +1,22 @@
-require_relative "../../lib/scx/runner"
+require_relative "../../lib/runner"
 
 class TestIncluded
-  include Scx::Runner
+  include Runner
 
   def method_with_args(arg1)
     "arg1: #{arg1}"
   end
 
   def method_with_auth_check
-    return "unauthorised" unless groups["admins"].include?(caller)
+    "unauthorised" unless groups["admins"].include?(caller)
   end
 
   def method_with_ext_access
     expected = 0
     result = ext_call("sc:ext:my_ext", "method_name", ["arg1"])
-    if result
-      return {"data_response" => result}
-    else
-      raise "ext_call failed"
-    end
+    raise "ext_call failed" unless result
+
+    { "data_response" => result }
   end
 end
 
