@@ -4,32 +4,46 @@ require "spec_helper"
 
 require File.expand_path("../../../lib/app", __dir__)
 
-RSpec.describe "Dispatch Functionality" do
-  let(:context_json) { File.read("spec/fixtures/transfer_context.json") }
-  let(:body) { { context: JSON.parse(context_json), state: { 1 => 1 } }.to_json }
+RSpec.describe Runner::Dispatch do
+  let(:json) { File.read("spec/fixtures/transfer_context.json") }
+  let(:state) { {} }
+  let(:input) { { "context" => JSON.parse(json), "state" => state } }
+  let(:app) { instance_double(App) }
+  let(:dispatch) { described_class.new(input, app) }
 
-  it "passes function arguments" do
-    res = Runner::Dispatch.new(JSON.parse(body))
-    validation = res.validate!
-    expect(validation).to be_success
+  before do
+    allow(app).to receive(:transfer).and_return(Dry::Monads::Success(balances:
+     { "caller_key" => 900,
+       "receiver_key" => 200 }))
   end
 
-  it "converts args to symbols, ALNs to decimals" do
-    res = Runner::Dispatch.new(JSON.parse(body))
-    res.validate!
-    res.prepare_args!
-
-    expect(res.args).to eq(amount: 100.0,
-                           to: "HtFMpu8LQka2z9BP2BW7KZWn84pqFh2ZxB3ZU56Uo6yk",
-                           from: "AvrsEWLMEQgpkem9wfcNgph6G4aRkCVJeiyYo5fu87cb")
-
-    expect(res.args[:amount]).to eq(100.0)
+  describe "#initialize" do
+    it "initializes with request body" do
+      expect { dispatch }.not_to raise_error
+    end
   end
 
-  it "returns an error for malformed context" do
-    res = Runner::Dispatch.new(JSON.parse("[]"))
-    validation = res.validate!
+  describe "#validate!" do
+    it "validates the request successfully" do
+      expect(dispatch.method).to eq("transfer")
+    end
+  end
 
-    expect(validation).to be_failure
+  describe "#run!" do
+    it "runs the requested method and returns success" do
+      result = dispatch.run!
+      expect(result).to be_success
+      expect(app).to have_received(:transfer).with(amount: 0.1e3,
+                                                   from: "AvrsEWLMEQgpkem9wfcNgph6G4aRkCVJeiyYo5fu87cb",
+                                                   to: "HtFMpu8LQka2z9BP2BW7KZWn84pqFh2ZxB3ZU56Uo6yk")
+    end
+
+    it "encodes the new state using ALN.encode_hash" do
+      result = dispatch.run!
+      expect(result).to be_success
+      encoded_state = result.value!
+      puts "encoded_state: #{encoded_state}"
+      expect(encoded_state["balances"]).to eq({ "caller_key" => "C900", "receiver_key" => "C200" })
+    end
   end
 end

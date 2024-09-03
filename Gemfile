@@ -26,8 +26,13 @@ gem "ed25519"
 # a decent server
 gem "puma"
 
+# nokogiri for NYT trick
+gem "nokogiri"
+
 group :development, :test do
   gem "rack-test"
   gem "rspec", "~> 3.13"
   gem "rubocop", "~> 1.63.4"
 end
+
+gem "rackup", "~> 2.1"

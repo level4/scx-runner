@@ -2,12 +2,12 @@
 
 require "dry-schema"
 
-RequestSchema = Dry::Schema.Params do
+RequestSchema = Dry::Schema.JSON do
   required(:context).filled(:hash)
-  required(:state).filled(:hash)
+  required(:state).maybe(:hash)
 end
 
-UserSchema = Dry::Schema.Params do
+UserSchema = Dry::Schema.JSON do
   required(:id).filled(:string)
   required(:keys).filled(:hash)
   required(:balance).filled(:string)
@@ -15,15 +15,15 @@ UserSchema = Dry::Schema.Params do
   optional(:rules).filled(:hash)
 end
 
-CallSchema = Dry::Schema.Params do
+CallSchema = Dry::Schema.JSON do
   required(:id).filled(:string)
   required(:target).filled(:string)
   required(:function).filled(:string)
-  required(:args).filled(:hash)
+  optional(:args).maybe(:hash)
   required(:ttl).filled(:integer)
 end
 
-ContextSchemaFull = Dry::Schema.Params do # rubocop:disable Metrics/BlockLength
+ContextSchemaFull = Dry::Schema.JSON do # rubocop:disable Metrics/BlockLength
   required(:call).filled(CallSchema)
 
   required(:caller).schema do
@@ -41,8 +41,6 @@ ContextSchemaFull = Dry::Schema.Params do # rubocop:disable Metrics/BlockLength
   end
 
   optional(:v).filled(:float)
-
-  required(:targets).array(UserSchema)
 
   required(:calldata).schema do
     required(:call).schema do
@@ -103,5 +101,5 @@ ContextSchemaBasic = Dry::Schema.Params do
   required(:call).filled(CallSchema)
   required(:caller).filled(:hash)
 
-  required(:targets).filled(:array)
+  optional(:targets).maybe(:array)
 end

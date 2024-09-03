@@ -118,6 +118,7 @@ module Parser
       )
     end
 
-    Context.new(call: call, caller: caller, signers: signers, targets: targets)
+    ctx = Context.new(call: call, caller: caller, signers: signers, targets: targets)
+    Success(ctx)
   end
 end

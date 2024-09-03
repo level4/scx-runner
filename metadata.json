@@ -1,0 +1,7 @@
+{
+  "name": "Veratix Demo Token",
+  "symbol": "DEMOTIX",
+  "precision": 6,
+  "spec": "common/20",
+  "total_supply": 16777216
+}

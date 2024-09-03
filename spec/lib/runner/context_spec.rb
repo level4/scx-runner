@@ -11,13 +11,12 @@ RSpec.describe Context do
     end
 
     it "parses json context" do
-      expect(ctx).to be_a(Context)
-      expect(ctx.call).to be_a(Call)
-      expect(ctx.caller).to be_a(Caller)
-      expect(ctx.signers).to all(be_a(Signer))
-      expect(ctx.targets).to all(be_a(Target))
-
-      # expect { Parser.json('') }.to raise_error(JSON::ParserError)
+      parsed = ctx.value!
+      expect(parsed).to be_a(Context)
+      expect(parsed.call).to be_a(Call)
+      expect(parsed.caller).to be_a(Caller)
+      expect(parsed.signers).to all(be_a(Signer))
+      expect(parsed.targets).to all(be_a(Target))
     end
   end
 end
